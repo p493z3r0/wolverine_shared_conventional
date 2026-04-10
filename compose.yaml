@@ -1,0 +1,47 @@
+﻿services:
+  shared-rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment: &rabbitmq-creds
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "-q", "check_port_connectivity" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  customer-rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5673:5672" # Mapped to 5673 to avoid host conflict
+      - "15673:15672"
+    environment: *rabbitmq-creds # Uses YAML anchor to ensure identical creds
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "-q", "check_port_connectivity" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  shared_service:
+    image: shared_service
+    build:
+      context: .
+      dockerfile: shared_service/Dockerfile
+    depends_on:
+      - shared-rabbitmq
+      - customer-rabbitmq
+
+  wolverine_multiple_brokers_issue:
+    image: wolverine_multiple_brokers_issue
+    build:
+      context: .
+      dockerfile: wolverine_multiple_brokers_issue/Dockerfile
+    depends_on:
+      - shared-rabbitmq
+      - customer-rabbitmq
+

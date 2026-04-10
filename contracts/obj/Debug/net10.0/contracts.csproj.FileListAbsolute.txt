@@ -1,0 +1,14 @@
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\bin\Debug\net10.0\contracts.exe
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\bin\Debug\net10.0\contracts.deps.json
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\bin\Debug\net10.0\contracts.runtimeconfig.json
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\bin\Debug\net10.0\contracts.dll
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\bin\Debug\net10.0\contracts.pdb
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.AssemblyInfoInputs.cache
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.AssemblyInfo.cs
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.csproj.CoreCompileInputs.cache
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.dll
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\refint\contracts.dll
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.pdb
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\contracts.genruntimeconfig.cache
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\contracts\obj\Debug\net10.0\ref\contracts.dll

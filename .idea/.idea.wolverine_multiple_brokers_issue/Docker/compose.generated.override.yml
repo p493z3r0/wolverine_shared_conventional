@@ -1,0 +1,40 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  shared_service:
+    build:
+      context: "C:\\Users\\Domin\\RiderProjects\\wolverine_multiple_brokers_issue"
+      dockerfile: "shared_service/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net10.0/shared_service.dll"
+    environment:
+      DOTNET_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "shared_service:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Domin\\RiderProjects\\wolverine_multiple_brokers_issue\\shared_service:/app:rw"
+    - "C:\\Users\\Domin\\RiderProjects\\wolverine_multiple_brokers_issue:/src:rw"
+    - "C:\\Users\\Domin\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
+  wolverine_multiple_brokers_issue:
+    build:
+      context: "C:\\Users\\Domin\\RiderProjects\\wolverine_multiple_brokers_issue"
+      dockerfile: "wolverine_multiple_brokers_issue/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net10.0/wolverine_multiple_brokers_issue.dll"
+    environment:
+      DOTNET_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "wolverine_multiple_brokers_issue:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Domin\\RiderProjects\\wolverine_multiple_brokers_issue\\wolverine_multiple_brokers_issue:/app:rw"
+    - "C:\\Users\\Domin\\RiderProjects\\wolverine_multiple_brokers_issue:/src:rw"
+    - "C:\\Users\\Domin\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
