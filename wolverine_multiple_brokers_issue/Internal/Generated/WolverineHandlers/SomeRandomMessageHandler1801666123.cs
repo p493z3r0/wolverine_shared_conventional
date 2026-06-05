@@ -22,14 +22,14 @@ namespace Internal.Generated.WolverineHandlers
             // The actual message body
             var someRandomMessage = (contracts.SomeRandomMessage)context.Envelope.Message;
 
-            var randomMessageHandler = new wolverine_multiple_brokers_issue.RandomMessageHandler();
+            var randomMessageSaga = new wolverine_multiple_brokers_issue.RandomMessageSaga();
             
             // The actual message execution
-            randomMessageHandler.Start(someRandomMessage);
+            randomMessageSaga.Start(someRandomMessage);
 
-            if (!randomMessageHandler.IsCompleted())
+            if (!randomMessageSaga.IsCompleted())
             {
-                _inMemorySagaPersistor.Store<wolverine_multiple_brokers_issue.RandomMessageHandler>(randomMessageHandler);
+                _inMemorySagaPersistor.Store<wolverine_multiple_brokers_issue.RandomMessageSaga>(randomMessageSaga);
             }
 
             // No unit of work

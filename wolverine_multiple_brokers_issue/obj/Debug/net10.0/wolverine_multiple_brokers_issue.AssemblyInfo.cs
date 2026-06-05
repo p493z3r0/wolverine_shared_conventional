@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wolverine_multiple_brokers_issue")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2649716c9d8cc628cb42ace9c3cc8ab48e4a6517")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17111525e0a9d26e3c1473bdf9d2e8d11fad86b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("wolverine_multiple_brokers_issue")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wolverine_multiple_brokers_issue")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

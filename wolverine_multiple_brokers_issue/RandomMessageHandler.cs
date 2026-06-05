@@ -3,7 +3,7 @@ using Wolverine;
 
 namespace wolverine_multiple_brokers_issue;
 
-public class RandomMessageHandler : Saga 
+public class RandomMessageSaga : Saga
 {
     public Guid Id { get; set; }
     public  void Start(SomeRandomMessage message)

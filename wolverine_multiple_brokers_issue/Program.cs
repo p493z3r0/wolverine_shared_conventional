@@ -18,8 +18,6 @@ builder.UseWolverine(opts =>
     
    
 
-    opts.DescribeHandlerMatch(typeof(RandomMessageHandler));
-    opts.DescribeHandlerMatch(typeof(RandomMessage2Handler));
     opts.UseRabbitMq(rabbitmq =>
         {
             rabbitmq.HostName = "customer-rabbitmq";
@@ -28,7 +26,7 @@ builder.UseWolverine(opts =>
             rabbitmq.VirtualHost = "/";
             rabbitmq.RequestedHeartbeat = new TimeSpan(0, 0, 10);
 
-        }).UseConventionalRouting(NamingSource.FromMessageType) // NamingSource.FromHandlerType breaks with this
+        }).UseConventionalRouting(NamingSource.FromHandlerType) // NamingSource.FromHandlerType breaks with this
         .AutoProvision();
 
     opts.Policies.DisableConventionalLocalRouting();
