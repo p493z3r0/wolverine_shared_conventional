@@ -1543,6 +1543,10 @@
       "contracts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "WolverineFx": "5.29.0",
+          "WolverineFx.RabbitMQ": "5.29.0"
+        },
         "compile": {
           "bin/placeholder/contracts.dll": {}
         },

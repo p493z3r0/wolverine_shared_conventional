@@ -27,14 +27,7 @@
       retries: 10
       start_period: 20s
 
-  shared_service:
-    image: shared_service
-    build:
-      context: .
-      dockerfile: shared_service/Dockerfile
-    depends_on:
-      - shared-rabbitmq
-      - customer-rabbitmq
+
 
   wolverine_multiple_brokers_issue:
     image: wolverine_multiple_brokers_issue

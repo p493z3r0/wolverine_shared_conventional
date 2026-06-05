@@ -185,3 +185,4 @@ C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\wolverine_multiple
 C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\wolverine_multiple_brokers_issue\bin\Debug\net10.0\contracts.dll
 C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\wolverine_multiple_brokers_issue\bin\Debug\net10.0\contracts.pdb
 C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\wolverine_multiple_brokers_issue\bin\Debug\net10.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Users\Domin\RiderProjects\wolverine_multiple_brokers_issue\wolverine_multiple_brokers_issue\obj\Debug\net10.0\wolverine_multiple_brokers_issue.sourcelink.json

@@ -1,10 +1,15 @@
-﻿using contracts;
+﻿using System.Diagnostics;
+using contracts;
 using JasperFx;
+using JasperFx.Core.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using wolverine_multiple_brokers_issue;
 using Wolverine;
+using Wolverine.Attributes;
 using Wolverine.RabbitMQ;
+using Wolverine.RabbitMQ.Internal;
+using Wolverine.Runtime;
 
 var builder = new HostApplicationBuilder();
 
@@ -24,32 +29,15 @@ builder.UseWolverine(opts =>
 
         }).UseConventionalRouting()
         .AutoProvision();
+    opts.Policies.DisableConventionalLocalRouting();
 
-    opts.AddNamedRabbitMqBroker(sharedBroker, rabbitmq =>
-    {
-        rabbitmq.HostName = "shared-rabbitmq";
-        rabbitmq.UserName = "guest";
-        rabbitmq.Password = "guest";
-        rabbitmq.VirtualHost = "/";
-        rabbitmq.RequestedHeartbeat = new TimeSpan(0, 0, 10);
-    }).UseConventionalRouting().AutoProvision();
-
-   var types = typeof(ISharedMessage).Assembly.GetTypes()
-        .Where(t => t.IsClass && !t.IsAbstract && t.IsAssignableTo(typeof(ISharedMessage))).ToList();
    
-   foreach (var type in types)
-   {
-       opts
-           .PublishMessage(type)
-           .ToRabbitExchangeOnNamedBroker(sharedBroker, type.FullName!);
-       Console.WriteLine($"DEBUG: {type.FullName} is published to {sharedBroker.Name} exchange");
-   }
    
 });
 
-var app = builder.Build();
+var host = builder.Build();
 
-var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
+var lifetime = host.Services.GetRequiredService<IHostApplicationLifetime>();
 lifetime.ApplicationStarted.Register(() =>
 {
     Console.WriteLine("****************************************************");
@@ -58,13 +46,24 @@ lifetime.ApplicationStarted.Register(() =>
 
     Task.Delay(TimeSpan.FromSeconds(5)).Wait();
     
-    using (var scope = app.Services.CreateScope())
+    using (var scope = host.Services.CreateScope())
     {
         var bus = scope.ServiceProvider.GetRequiredService<IMessageBus>();
-        bus.PublishAsync(new HelloToShared()).GetAwaiter().GetResult();
+        bus.PublishAsync(new SomeRandomMessage()).GetAwaiter().GetResult();
+        
+        
+        var runtime = host.Services.GetRequiredService<IWolverineRuntime>();
+    
+        var router = runtime.RoutingFor(typeof(SomeRandomMessage));
+        foreach (var messageRoute in router.Routes)
+        {
+            Console.WriteLine(messageRoute);
+        }
     }
     
 });
     
+
+
     
-app.RunJasperFxCommandsSynchronously(args);
+host.RunJasperFxCommandsSynchronously(args);
