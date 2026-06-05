@@ -52,11 +52,11 @@
           "dependencies": {
             "WolverineFx": {
               "target": "Package",
-              "version": "[5.29.0, )"
+              "version": "[6.4.3, )"
             },
             "WolverineFx.RabbitMQ": {
               "target": "Package",
-              "version": "[5.29.0, )"
+              "version": "[6.4.3, )"
             }
           },
           "imports": [
@@ -405,11 +405,15 @@
           "dependencies": {
             "WolverineFx": {
               "target": "Package",
-              "version": "[5.29.0, )"
+              "version": "[6.4.3, )"
+            },
+            "WolverineFx.Postgresql": {
+              "target": "Package",
+              "version": "[6.4.3, )"
             },
             "WolverineFx.RabbitMQ": {
               "target": "Package",
-              "version": "[5.29.0, )"
+              "version": "[6.4.3, )"
             }
           },
           "imports": [
